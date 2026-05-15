@@ -1,4 +1,4 @@
-
+const HTML_OUTPUT = document.getElementById("databaseOutput");
 console.log("Running Sal's Strawberries")
 
 function writeForm(){
