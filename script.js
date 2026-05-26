@@ -5,20 +5,21 @@ console.log("Running Sal's Strawberries")
 
 function writeForm(){
     // Get the form data
-    const favoriteFruit = document.getElementById("favoriteFruit");
-    let fruit = favoriteFruit.value;
-    const Name_field = document.getElementById("name");
-    let username2 = Name_field.value;
-    const fruitquantity = document.getElementById("fruitQuantity");
-    let quantiity = fruitquantity.value;
+    const favoriteFruit = document.getElementById("favoriteFruit").value;
+    const Name_field = document.getElementById("name").value;
+    const fruitquantity = document.getElementById("fruitQuantity").value;
     console.log("Here")
-    console.log(fruit)
+    console.log(favoriteFruit)
     
-    console.log(username2 + " likes " + fruit)
-firebase.database().ref('/Foods/users/' + username2).set(
-    fruit
- );
- HTML_OUTPUT.innerHTML = username2 + " likes " + fruit
+    console.log(GLOBAL_user.displayName + " likes " + favoriteFruit)
+firebase.database().ref('/Foods/users/' + GLOBAL_user.uid).update(
+{
+  favFruit: favoriteFruit,
+  quantity : fruitquantity
+}
+)
+   
+ HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " likes " + favoriteFruit
 }
  function showEmail(){
     console.log("Reading email");
@@ -28,8 +29,8 @@ firebase.database().ref('/Foods/users/' + username2).set(
     console.log("There was an error reading reading the message");
     console.error(error);
   };
-  function fb_displayEmail(snapshot){
-    console.log(snapshot.val())
+  //unction fb_displayEmail(snapshot){
+    //console.log(snapshot.val())
 //let Email = snapshot.val()
-console.log("Your favortie fruit is " + Email)
-  }
+//console.log("Your favortie fruit is " + Email)
+  //}
