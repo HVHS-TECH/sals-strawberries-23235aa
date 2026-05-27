@@ -11,7 +11,7 @@ function writeForm(){
     console.log("Here")
     console.log(favoriteFruit)
     
-    console.log(GLOBAL_user.displayName + " likes " + favoriteFruit)
+    console.log(GLOBAL_user.displayName + " likes " + favoriteFruit + " They have it " + fruitquantity)
 firebase.database().ref('/Foods/users/' + GLOBAL_user.uid).update(
 {
   favFruit: favoriteFruit,
@@ -19,7 +19,7 @@ firebase.database().ref('/Foods/users/' + GLOBAL_user.uid).update(
 }
 )
    
- HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " likes " + favoriteFruit
+ HTML_OUTPUT.innerHTML = GLOBAL_user.displayName + " likes " + favoriteFruit + " They have it " + fruitquantity+ " times"
 }
  function showEmail(){
     console.log("Reading email");
