@@ -4,9 +4,14 @@ console.log("Running Sal's Strawberries")
 //let fruit
 
 function writeForm(){
+  //Check if the user is logged in
+  if (!GLOBAL_user) {
+        alert("Please log in before submitting the form!");
+        return; 
+    }
     // Get the form data
     const favoriteFruit = document.getElementById("favoriteFruit").value;
-    const Name_field = document.getElementById("name").value;
+    //const Name_field = document.getElementById("name").value;
     const fruitquantity = document.getElementById("fruitQuantity").value;
     console.log("Here")
     console.log(favoriteFruit)
